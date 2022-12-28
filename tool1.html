@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<title>片段变速工具</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+</head>
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-pink mdui-theme-layout-auto mdui-drawer-body-left" style="margin-top: 100px;">
+
+    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset">
+        <div class="mdui-toolbar mdui-color-theme mdui-shadow-2">
+            <a class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <span style="font-size:x-large;">Arcaea Chart Tools</span>
+            <div class="mdui-toolbar-spacer"></div>
+            <a mdui-menu="{target:'#info', covered:false}" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">info_outline</i>
+            </a>
+            <ul class="mdui-menu" id="info">
+                <li class="mdui-menu-item">
+                    <a href="https://space.bilibili.com/474962233" target="_blank" class="mdui-ripple">Bilibili</a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a href="https://github.com/Eric12345636/ArcaeaChartTools" target="_blank" class="mdui-ripple">Github</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="mdui-drawer mdui-drawer-open mdui-color-white" id="left-drawer">
+        <div class="mdui-list">
+            <li class="mdui-menu-item">
+                <a href="./index.html" class="mdui-ripple mdui-btn" style="font-size: medium;">主页</a>
+            </li>
+            <li class="mdui-divider"></li>
+            <li class="mdui-menu-item">
+                <a href="./tool0.html" class="mdui-ripple mdui-btn" style="font-size: medium;">谱面变速工具</a>
+            </li>
+            <li class="mdui-menu-item">
+                <a href="./tool1.html" class="mdui-ripple mdui-btn" style="font-weight: 700; font-size: medium;">片段变速工具</a>
+            </li>
+            <li class="mdui-typo" style="position: fixed; bottom: 10px; left: 10px;">Powered by <a href="https://www.mdui.org/" target="_blank">MDUI</a><br>©2022 Eric12345636</li>
+        </div>
+    </div>
+
+    <div class="mdui-container mdui-typo">
+        <h1 style="text-align: center;">片段变速工具</h1>
+        <p>这个工具可以将Arcaea谱面片段变速。</p>
+        <p>注意：间隔极短的timing(指1ms用于瞬移的超高bpm)变速后在Arcade中打开有概率消失，请导出后自行检查(<small>我太菜了呜呜呜</small></p>
+        <p>“开始位置”指变速后的段落的开始位置，整段谱面会以此时间点为中心变速，一般填写片段内第一个物件的时间即可</p>
+        <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">谱面片段</label>
+            <textarea class="mdui-textfield-input" rows="10" id="chart" required></textarea>
+        </div>
+        <div class="mdui-row">
+            <div class="mdui-col-xs-6">
+                <div class="mdui-textfield mdui-textfield-floating-label">
+                    <label class="mdui-textfield-label">变速倍数</label>
+                    <input class="mdui-textfield-input" type="text" id="time" pattern="[0-9.]*" required>
+                </div>
+            </div>
+            <div class="mdui-col-xs-6">
+                <div class="mdui-textfield mdui-textfield-floating-label">
+                    <label class="mdui-textfield-label">开始位置<small>(ms)</small></label>
+                    <input class="mdui-textfield-input" type="text" id="startTime" pattern="[0-9]*" required>
+                </div>
+            </div>
+        </div>
+        <input class="mdui-btn mdui-btn-raised mdui-color-theme-accent" type="button" id="generate" value="生成">
+        <input class="mdui-btn mdui-btn-raised mdui-color-theme-accent" type="button" id="copyButton" value="复制" disabled>
+    </div>
+
+    <span style="position: fixed; bottom: 10px; right: 10px; font-size: xx-small;">Tips:<span id="tips"></span></span>
+
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="./scripts/tool1.js"></script>
+    <script src="./scripts/tips.js"></script>
+</body>
+</html>
