@@ -4,6 +4,6 @@ Some tools for arcaea chart making<br/>
   <li><b>tool0.html</b>谱面变速工具</li>
   <li><b>tool1.html</b>片段变速工具</li>
 </ul>
-<a href="https://arcaea.ericzh.xyz">arcaea.ericzh.xyz</a>
+arcaea.ericzh.xyz
 <hr>
 代码写得稀烂 但能用(
